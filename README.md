@@ -22,9 +22,6 @@ npm install
 4. Créez un fichier `.env` à la racine du projet avec les variables d'environnement suivantes:
 
 - DB_HOST=<adresse du serveur de base de données>
-- DB_NAME=<nom de la base de données>
-- DB_USER=<nom d'utilisateur de la base de données>
-- DB_PASSWORD=<mot de passe de la base de données>
 - JWT_SECRET=<clé secrète pour le token JWT>.env
 
 5. Exécutez la commande suivante pour lancer l'API:
