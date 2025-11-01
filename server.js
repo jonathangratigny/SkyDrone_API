@@ -37,12 +37,7 @@ const PORT = process.env.PORT || 3000
 //#region MongoDB Connection 
 
 // connection à la base de données
-mongoose.connect(process.env.MONGODB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-}).then(() => {
+mongoose.connect(process.env.DB_HOST).then(() => {
   console.log('Connected to MongoDB Atlas')
 }).catch(err => {
   console.log('Error: ', err.message)
@@ -78,11 +73,6 @@ app.get("/", (_, res) => {
 })
 
 app.use('/api/v1', routes)
-
-
-app.all('*', (req, res, next) => {
-  next(new AppError(`Cette adresse : ${req.originalUrl} n'est pas disponible sur ce serveur.`, 404))
-})
 
 app.use(globalErrorHandler)
 //#endregion
